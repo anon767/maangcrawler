@@ -1,6 +1,6 @@
 # MAANG Job Search
 
-Conveniently crawl and scrape all job postings from Meta, Amazon, Apple, Netflix and Google efficiently.
+Conveniently crawl and scrape all job postings from Meta, Microsoft, Amazon, Apple, Netflix and Google efficiently.
 This tool comes with a simple UI to retrieve and search the job postings.
 
 ## Usage
