@@ -10,9 +10,11 @@ from Crawlers.Google import Google
 from Crawlers.Job import Job
 from Crawlers.Meta import Meta
 from Crawlers.Netflix import Netflix
+from Crawlers.Microsoft import Microsoft
+
 from DB.DBJob import DBjob
 
-job_pages = {"meta": Meta(), "amazon": Amazon(), "apple": Apple(), "netflix": Netflix(), "google": Google()}
+job_pages = {"microsoft": Microsoft(), "meta": Meta(), "amazon": Amazon(), "apple": Apple(), "netflix": Netflix(), "google": Google()}
 DB = DBjob()
 
 app = Flask("maangsearch")
