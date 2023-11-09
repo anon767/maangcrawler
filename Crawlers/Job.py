@@ -10,7 +10,8 @@ class Job:
     def __init__(self, title, desc, company, location, id, date, url=None):
         self.id = id
         self.title = title
-        self.desc = striphtml(desc)
+        if desc is not None:
+            self.desc = striphtml(desc)
         self.company = company
         self.location = location
         self.date = date
