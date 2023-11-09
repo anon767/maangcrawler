@@ -24,8 +24,8 @@ class Amazon(Crawler):
             parsed_jobs = self.parse_job_page(i)
             for j in parsed_jobs["jobs"]:
                 jobs.append(Job(company=j["company_name"], title=j["title"], date=j["posted_date"],
-                                desc=j["description_short"], id=j["id"],
-                                location=j["location"], url="https://www.amazon.jobs/en/jobs/{}".format(j["id"])))
+                                desc=j["description_short"], id=j["id_icims"],
+                                location=j["location"], url="https://www.amazon.jobs/en/jobs/{}".format(j["id_icims"])))
         return jobs
 
 
