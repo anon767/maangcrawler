@@ -20,7 +20,7 @@ DB = DBjob()
 
 app = Flask("maangsearch")
 
-DISABLE_UPDATE = True
+DISABLE_UPDATE = False
 
 
 def crawl_jobs():
