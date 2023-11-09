@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+<body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+
+<div class="container bg-dark p-5">
+    <h1 class="text-white text-center">MAANG Job Search</h1>
+</div>
+<br>
+<div class="container bg-light p-2 rounded-2">
+    <form>
+        <div class="mb-3">
+            <label for="job" class="form-label"><strong>Search:</strong></label>
+            <input type="text" name="job" class="form-control" id="job"/>
+        </div>
+        <button type="submit" class="btn btn-sm btn-primary"><strong>search</strong></button>
+    </form>
+</div>
+<br>
+<div class="container p-0 rounded-2">
+    <h5 class="text-white">Results</h5>
+    {%for job in jobs%}
+    <div class="card bg-light mb-3">
+        <div class="card-header text-start">{{job['title']}}@{{job['company']}}</div>
+        <div class="card-body">
+            <a href="{{job['url']}}">{{job['id']}}</a>
+            {{job['desc']}}
+
+        </div>
+        <div class="card-footer bg-transparent">
+            From {{job['date']}} at {{job['location']}}
+        </div>
+    </div>
+    {%endfor%}
+</div>
+
+</body>
+</html>
