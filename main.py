@@ -50,8 +50,8 @@ def update():
     store_jobs(jobs)
 
 
-#jobs = crawl_jobs()
-#store_jobs(jobs)
+jobs = crawl_jobs()
+store_jobs(jobs)
 
 if __name__ == "__main__":
     app.run(debug=False)
