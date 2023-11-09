@@ -4,3 +4,4 @@ flask
 requests
 sqlalchemy
 bs4
+tqdm
