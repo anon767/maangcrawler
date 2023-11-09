@@ -13,8 +13,6 @@ from datetime import date
 
 
 class Meta(Crawler):
-    def __init__(self):
-        self.parsed_json = self.parse_job_page()
 
     def parse_job_page(self):
         options = webdriver.ChromeOptions()

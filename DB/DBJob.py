@@ -1,6 +1,6 @@
 from typing import List
 
-from sqlalchemy import String, or_
+from sqlalchemy import String, and_
 from sqlalchemy import create_engine
 from sqlalchemy.orm import DeclarativeBase, Session
 from sqlalchemy.orm import Mapped
@@ -35,10 +35,17 @@ class DBjob(Base):
                 print("Job already stored")
 
     def search(self, q: str) -> List:
+        queries = q.split(" ")
+
+        clauses = []
+        clauses.extend([DBjob.desc.like('%{0}%'.format(k)) for k in queries])
+        # clauses.extend([DBjob.title.like('%{0}%'.format(k)) for k in queries])
+        # clauses.extend([DBjob.company.like('%{0}%'.format(k)) for k in queries])
+        # clauses.extend([DBjob.location.like('%{0}%'.format(k)) for k in queries])
+
         with Session(engine) as session:
             query = session.query(DBjob).filter(
-                or_(DBjob.title.contains(q), DBjob.desc.contains(q), DBjob.company.contains(q),
-                    DBjob.location.contains(q)))
+                and_(*clauses))
         return query.all()
 
 

@@ -15,9 +15,7 @@ class Microsoft(Crawler):
         self.jobs_per_page = len(self.parsed_json["operationResult"]["result"]["jobs"])
 
     def parse_job_page(self, i=1):
-        print(MICROSOFTURL.format(i))
         self.website = requests.get(MICROSOFTURL.format(i))
-        print(self.website.text)
         return json.loads(self.website.text)
 
     def get_jobs(self) -> List[Job]:

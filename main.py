@@ -9,13 +9,17 @@ from Crawlers.Crawler import Crawler
 from Crawlers.Google import Google
 from Crawlers.Job import Job
 from Crawlers.Meta import Meta
+from Crawlers.Microsoft import Microsoft
 from Crawlers.Netflix import Netflix
 from DB.DBJob import DBjob
 
-job_pages = {"meta": Meta(), "amazon": Amazon(), "apple": Apple(), "netflix": Netflix(), "google": Google()}
+job_pages = {"microsoft": Microsoft(), "meta": Meta(), "amazon": Amazon(), "apple": Apple(), "netflix": Netflix(),
+             "google": Google()}
 DB = DBjob()
 
 app = Flask("maangsearch")
+
+DISABLE_UPDATE = True
 
 
 def crawl_jobs():
@@ -46,12 +50,16 @@ def main():
 
 @app.route("/update", methods=['GET'])
 def update():
+    if not DISABLE_UPDATE:
+        jobs = crawl_jobs()
+        store_jobs(jobs)
+    else:
+        return "Update Disabled here"
+
+
+if not DISABLE_UPDATE:
     jobs = crawl_jobs()
     store_jobs(jobs)
-
-
-jobs = crawl_jobs()
-store_jobs(jobs)
 
 if __name__ == "__main__":
     app.run(debug=False)
