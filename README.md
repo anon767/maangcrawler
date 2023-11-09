@@ -10,7 +10,8 @@ pip install -r requirements.txt
 python3 main.py
 ```
 
-Then locate to http://127.0.0.1:5000. You can update the database vis locating to http://127.0.0.1:5000/update
+Then locate to http://127.0.0.1:5000. You can update the database vis locating to http://127.0.0.1:5000/update .
+A Demo can be found here: https://maang.thecout.com/
 
 ## Demo
 
